@@ -1,0 +1,10 @@
+torch>=2.2,<2.4
+torchvision
+transformers
+datasets
+pandas
+numpy
+matplotlib
+seaborn
+tqdm
+scikit-learn
