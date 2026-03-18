@@ -1,0 +1,7 @@
+# data path configuration
+data_path:
+    sorce_data_path: E:\project_archive\dataset\scene-to-narration-generation\archive
+    raw_data_path: data/raw
+    interim_data_path: data/interim
+    process_data_path: data/processed
+    
