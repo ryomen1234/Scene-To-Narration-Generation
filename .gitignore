@@ -59,7 +59,9 @@ docs/_build/
 target/
 
 # data paths
-data/*
-!data/**/*.dvc
+data/raw/
+data/interim/
+data/processed/
 
-models/*
+
+models/
