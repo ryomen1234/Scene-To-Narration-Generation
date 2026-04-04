@@ -1,0 +1,68 @@
+schema: '2.0'
+stages:
+  data_validation:
+    cmd: python -m src.scripts.data_validation
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 4a3233c190b5824ca79dca1098b32cf9
+      size: 237
+    - path: data/raw
+      hash: md5
+      md5: 59b711c9175aebd909aa0536abf460be.dir
+      size: 1118053179
+      nfiles: 8092
+    - path: src/data/data_validation.py
+      hash: md5
+      md5: ade5ae5f535a5aa95e830b6b7ef927aa
+      size: 2548
+    outs:
+    - path: artifacts/reports/data_validation_report.json
+      hash: md5
+      md5: 87887c9441352a8d64f5b75a954d1260
+      size: 168
+  data_processing1:
+    cmd: python -m src.scripts.data_processing1
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 4a3233c190b5824ca79dca1098b32cf9
+      size: 237
+    - path: data/raw
+      hash: md5
+      md5: 59b711c9175aebd909aa0536abf460be.dir
+      size: 1118053179
+      nfiles: 8092
+    - path: src/data/data_preprocessing.py
+      hash: md5
+      md5: 719a5cbb6ed4280ccc49c76377ecb0d9
+      size: 3062
+    outs:
+    - path: data/interim/processed_data.json
+      hash: md5
+      md5: 5d0a1a89593b0fa977beb3cb204a2f6d
+      size: 1055254
+  data_processing2:
+    cmd: python -m src.scripts.data_processing2
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 4a3233c190b5824ca79dca1098b32cf9
+      size: 237
+    - path: data/interim/processed_data.json
+      hash: md5
+      md5: 5d0a1a89593b0fa977beb3cb204a2f6d
+      size: 1055254
+    - path: src/data/data_preprocessing2.py
+      hash: md5
+      md5: 3867ce96193393e063ca9fff1649e794
+      size: 2600
+    outs:
+    - path: data/processed/dataset_encoded.json
+      hash: md5
+      md5: 01f8912c95c4bbb07c5ffad5a6638730
+      size: 2101931
+    - path: data/processed/vocab.json
+      hash: md5
+      md5: 1764929e79a19ba7919987f0179917d0
+      size: 6022

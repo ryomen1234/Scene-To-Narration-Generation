@@ -1,0 +1,29 @@
+stages:
+
+  data_validation:
+    cmd: python -m src.scripts.data_validation
+    deps:
+      - src/data/data_validation.py
+      - data/raw
+      - config/config.yaml
+    outs:
+      - artifacts/reports/data_validation_report.json
+
+  data_processing1:
+    cmd: python -m src.scripts.data_processing1
+    deps:
+      - data/raw
+      - src/data/data_preprocessing.py
+      - config/config.yaml 
+    outs:
+      - data/interim/processed_data.json
+
+  data_processing2:
+    cmd: python -m src.scripts.data_processing2
+    deps:
+      - data/interim/processed_data.json
+      - src/data/data_preprocessing2.py
+      - config/config.yaml
+    outs:
+      - data/processed/dataset_encoded.json
+      - data/processed/vocab.json
