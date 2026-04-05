@@ -65,3 +65,6 @@ data/processed/
 
 
 models/
+
+artifacts/reports/
+artifacts/results/

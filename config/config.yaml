@@ -4,4 +4,10 @@ data_path:
     raw_data_path: data/raw
     interim_data_path: data/interim
     process_data_path: data/processed
+
+parameters:
+       max_len: 256
+       pad_idx: 0
+       batch_size: 8
+       num_worker: 2
     
